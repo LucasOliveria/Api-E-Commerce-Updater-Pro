@@ -1,26 +1,14 @@
 import { Request, Response } from "express";
-import csvParser from "csv-parser";
-import { Stream } from "stream";
-import { ReadCsvFile } from "../types/types";
+import { parseCsvFile } from "../helpers/parseCsvFile";
+import { knex } from "../database/connection";
 
 export const updateProduct = async (req: Request, res: Response) => {
   try {
-    const results: ReadCsvFile[] = [];
-    const csvBuffer = req.file?.buffer;
-    const bufferStream = new Stream.PassThrough().end(csvBuffer);
+    const results = await parseCsvFile(req.file!.buffer);
 
-    bufferStream
-      .pipe(csvParser())
-      .on('data', (data) => results.push(data))
-      .on('end', () => {
-        manipular(results);
-      });
+    const product = await knex('products').where({ code: results[0].product_code })
 
-    function manipular(results: ReadCsvFile[]) {
-      res.json(results);
-    }
-
-
+    res.json(product);
   } catch (error) {
     console.log(error);
     res.status(500).json({ mensagem: 'Erro interno do servidor' });
