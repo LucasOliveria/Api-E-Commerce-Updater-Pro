@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { parseCsvFile } from "../helpers/parseCsvFile";
-import { knex } from "../database/connection";
+import { verifyBrokenRules } from "../helpers/verifyBrokenRules";
 
 export const updateProduct = async (req: Request, res: Response) => {
   try {
     const results = await parseCsvFile(req.file!.buffer);
 
-    const product = await knex('products').where({ code: results[0].product_code })
+    const response = await verifyBrokenRules(results)
 
-    res.json(product);
-  } catch (error) {
+    res.json(response)
+  } catch (error: any) {
     console.log(error);
     res.status(500).json({ mensagem: 'Erro interno do servidor' });
   }
