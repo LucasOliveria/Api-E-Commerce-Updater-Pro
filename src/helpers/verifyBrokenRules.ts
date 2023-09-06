@@ -8,7 +8,7 @@ export const verifyBrokenRules = async (csvJson: ReadCsvFile[]): Promise<Product
     if (!isNaN(Number(element.product_code))) {
       const product = await knex<Product>('products').where({ code: Number(element.product_code) }).first();
 
-      product ? element.name = product?.name : element.broken_rules?.push('O código informado não corresponde a nenhum produto')
+      product ? element.name = product?.name : element.broken_rules?.push('O código de produto não foi informado ou não corresponde a nenhum produto')
 
       if (isNaN(Number(element.new_price))) {
         element.broken_rules?.push('O preço informado não é um valor numérico válido');

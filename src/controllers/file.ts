@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { parseCsvFile } from "../helpers/parseCsvFile";
 import { verifyBrokenRules } from "../helpers/verifyBrokenRules";
 
-export const updateProduct = async (req: Request, res: Response) => {
+export const analyzeFile = async (req: Request, res: Response) => {
   try {
     const results = await parseCsvFile(req.file!.buffer);
 
