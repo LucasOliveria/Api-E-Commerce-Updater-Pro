@@ -4,7 +4,9 @@ import { file } from '../middleware/multer';
 import { verifyFileUpload } from '../middleware/verifyFileUpload';
 
 const routes = Router();
+routes.use(file.single('csv'));
+routes.use(verifyFileUpload);
 
-routes.post('/file', file.single('csv'), verifyFileUpload, analyzeFile);
+routes.post('/file', analyzeFile);
 
 export default routes;
