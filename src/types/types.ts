@@ -12,3 +12,10 @@ export type Product = {
 }
 
 export type ProductCsvFile = ReadCsvFile & Pick<Product, 'name' | 'sales_price'>
+
+export type Pack = {
+  id: number,
+  pack_id: number,
+  product_id: number,
+  qty: number
+}
