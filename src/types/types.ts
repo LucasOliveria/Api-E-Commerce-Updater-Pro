@@ -7,8 +7,8 @@ export type ReadCsvFile = {
 export type Product = {
   code: number,
   name: string,
-  cost_price: string,
-  sales_price: string
+  cost_price: number,
+  sales_price: number
 }
 
-export type ProductCsvFile = ReadCsvFile & Pick<Product, 'name'>
+export type ProductCsvFile = ReadCsvFile & Pick<Product, 'name' | 'sales_price'>
