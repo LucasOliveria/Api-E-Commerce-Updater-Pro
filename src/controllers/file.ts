@@ -9,9 +9,14 @@ export const analyzeFile = async (req: Request, res: Response) => {
     const productsAndRules = await verifyBrokenRules(results);
     const response = removeDuplicateRules(productsAndRules);
 
+    for (const item of response) {
+      if (item.broken_rules?.length) {
+        return res.status(400).json(response);
+      }
+    }
+
     res.json(response);
   } catch (error: any) {
-    console.log(error);
     res.status(500).json({ mensagem: 'Erro interno do servidor' });
   }
 }

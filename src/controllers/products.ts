@@ -21,7 +21,6 @@ export const updateProducts = async (req: Request, res: Response) => {
 
     res.status(200).json({ mensagem: 'Preços atualizados com sucesso!' })
   } catch (error: any) {
-    console.log(error);
     res.status(500).json({ mensagem: 'Erro interno do servidor' });
   }
 }

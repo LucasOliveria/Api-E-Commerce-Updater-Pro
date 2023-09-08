@@ -1,4 +1,4 @@
-
+CREATE DATABASE e_commerce_db
 
 CREATE TABLE products 
 ( 

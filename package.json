@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node ./src/index.ts"
+    "dev": "nodemon --exec ts-node ./src/index.ts",
+    "build": "(IF EXIST .\\dist(rmdir/s/g .\\dist) && tsc",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
