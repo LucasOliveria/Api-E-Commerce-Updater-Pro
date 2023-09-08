@@ -48,7 +48,7 @@ export const verifyBrokenRules = async (csvJson: ReadCsvFile[]): Promise<Product
               const totalPackPrice = Number((Number(element.new_price) * packs[0].qty).toFixed(2));
 
               if (totalPackPrice !== Number(findPack.new_price)) {
-                findPack.broken_rules?.push(`Preço total do pacote apresenta divergência. 1 - Verifique se está faltando algum produto no arquivo CSV. Codigos dos produtos: ${packs[0].product_id}; 2 - Verifique se a soma dos preços de todos os produto que fazem parte do pacote está de acordo com o novo preço do pacote. Valor total dos produtos informados: R$${totalPackPrice}`)
+                findPack.broken_rules?.push(`Preço total do pacote apresenta divergência. Verifique se a soma dos preços de todos os produto que fazem parte do pacote está de acordo com o novo preço do pacote. Valor total dos produtos informados: R$${totalPackPrice}. Codigo do produto desse pacote: ${packs[0].product_id}`)
               }
             }
 
@@ -65,8 +65,8 @@ export const verifyBrokenRules = async (csvJson: ReadCsvFile[]): Promise<Product
                 }
               }
 
-              if (totalPackPrice !== Number(findPack.new_price)) {
-                findPack.broken_rules?.push(`Preço total do pacote apresenta divergência. 1 - Verifique se está faltando algum produto no arquivo CSV. Codigos dos produtos: ${packs[0].product_id} e ${packs[1].product_id}; 2 - Verifique se a soma dos preços de todos os produto que fazem parte do pacote está de acordo com o novo preço do pacote. Valor total dos produtos informados: R$${totalPackPrice}`);
+              if (Number(totalPackPrice.toFixed(2)) !== Number(findPack.new_price)) {
+                findPack.broken_rules?.push(`Preço total do pacote apresenta divergência. Verifique se a soma dos preços de todos os produto que fazem parte do pacote está de acordo com o novo preço do pacote. Valor total dos produtos informados: R$${totalPackPrice.toFixed(2)}. Códigos dos produtos desse pacote: ${packs[0].product_id} e ${packs[1].product_id}`);
               }
             }
           }
