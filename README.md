@@ -54,7 +54,7 @@ Ao receber o arquivo, o sistema fará as verificações necessárias e retornar�
 
 ### Exemplo de arquivo CSV que deverá ser enviado
 
-![](https://hackmd.io/_uploads/ByQFRz_C3.png)
+![](https://1drv.ms/i/s!AtQrq4LmBxjnrD7pQmEJLexGf_au?e=0pjui8)
 
 ### Exemplo de requisição
 A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo  "text/csv" (extensão .csv);
@@ -62,8 +62,8 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
 ![](https://hackmd.io/_uploads/rJ_xz7dAh.png)
 
 ### Exemplo de respostas
-```json 
 STATUS(400)
+```json 
 [
     {
         "product_code": "16",
@@ -83,8 +83,8 @@ STATUS(400)
     }
 ]
 ```
-```json
 STATUS(200)
+```json
 [
     {
         "product_code": "16",
@@ -102,14 +102,14 @@ STATUS(200)
     }
 ]
 ```
-```json
 STATUS(400)
+```json
 {
     "mensagem": "Nenhum arquivo CSV enviado"
 }
 ```
-```json
 STATUS(400)
+```json
 {
     "mensagem": "O arquivo enviado não é CSV"
 }
@@ -128,14 +128,14 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
 ![](https://hackmd.io/_uploads/rJ_xz7dAh.png)
 
 ### Exemplo de respostas
-```json
 STATUS(400)
+```json
 {
     "mensagem": "Existem pendências a serem resolvidas no arquivo CSV. Por favor, resolva essas pendências e reenvie o arquivo para nova verificação"
 }
 ```
-```json
 STATUS(200)
+```json
 {
     "mensagem": "Preços atualizados com sucesso!"
 }
