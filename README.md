@@ -13,7 +13,7 @@ Para utilizar essa API localmente siga os passos descritos abaixo:
 1. Faça um fork desse repositório para a sua coleção de repositórios no GitHub;
 2. Clone o repositório para sua máquina;
 3. Abra o projeto no seu editor de códigos (IDE) e no terminal digite o comando "npm install" para instalar as dependências (É preciso está na pasta do projeto);
-4. No diretório ```src``` do projeto, vá na pasta ```database```, copie os códigos presentes no arquivo ``` database.sql``` e cole na ferramenta que você utiliza para criar e manipular banco de dados (Ex.: Oracle SQL Developer,MySQL Workbench, Beekeeper Studio...);
+4. No diretório ```src``` do projeto, vá na pasta ```database```, copie os códigos presentes no arquivo ``` database.sql``` e cole na ferramenta que você utiliza para criar e manipular banco de dados (Ex.: Oracle SQL Developer,MySQL Workbench, Beekeeper Studio...). O banco de dados que deve ser utilizado é o MySQL (Instale-o caso não tenha);
 5. Mude o nome do arquivo ```.env.example``` para ```.env```, é nele que estão todas as variáveis de ambiente para conexão com o banco de dados e porta de acesso ao servidor "process.env". Preencha as variáveis conforme as configurações que utiliza no seu computador para acessar bancos de dados locais. Veja o exemplo a seguir: 
 
 .env
@@ -27,7 +27,7 @@ DB_NAME=e_commerce_db
 ```
 6. Após configurar as variáveis de ambiente basta rodar o comando "npm run dev" no terminal do editor de códigos (É preciso está na pasta do projeto)
 
-OBS.: A conexão com o banco de dados está sendo feita pela biblioteca ```knex``` e o banco de dados utilizado é o MySQL. Isso pode ser visto em ```database > connection.tj```
+OBS.: A conexão com o banco de dados está sendo feita pela biblioteca ```knex```. Isso pode ser visto em ```database > connection.tj```
 
 ```javascript
 import connection from 'knex';
@@ -48,7 +48,7 @@ export const knex = connection({
 
 1. POST /file
 
-Essa rota irá receber o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados.
+Essa rota irá receber o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados.(Esse repositório possui um exemplo de arquivo CSV para teste)
 
 Ao receber o arquivo, o sistema fará as verificações necessárias e retornará uma resposta para o usuário informando os erros presentes no arquivo, caso exista algum.
 
@@ -62,7 +62,6 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
 <img src="./images/requisicao.png" alt="">
 
 ### Exemplo de respostas
-STATUS(400)
 ```json 
 [
     {
@@ -83,7 +82,6 @@ STATUS(400)
     }
 ]
 ```
-STATUS(200)
 ```json
 [
     {
@@ -102,20 +100,18 @@ STATUS(200)
     }
 ]
 ```
-STATUS(400)
 ```json
 {
     "mensagem": "Nenhum arquivo CSV enviado"
 }
 ```
-STATUS(400)
 ```json
 {
     "mensagem": "O arquivo enviado não é CSV"
 }
 ```
 
-3. PATCH /products
+2. PATCH /products
 
 Essa rota também receberá o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados.
 
@@ -128,15 +124,23 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
 <img src="./images/requisicao.png" alt="">
 
 ### Exemplo de respostas
-STATUS(400)
 ```json
 {
     "mensagem": "Existem pendências a serem resolvidas no arquivo CSV. Por favor, resolva essas pendências e reenvie o arquivo para nova verificação"
 }
 ```
-STATUS(200)
 ```json
 {
     "mensagem": "Preços atualizados com sucesso!"
+}
+```
+```json
+{
+    "mensagem": "Nenhum arquivo CSV enviado"
+}
+```
+```json
+{
+    "mensagem": "O arquivo enviado não é CSV"
 }
 ```
