@@ -25,7 +25,7 @@ DB_USER=admin
 DB_PASS=admin
 DB_NAME=e_commerce_db
 ```
-OBS.: Geralmente a configuração padrão das variáveis de ambiente são essas descritas acima, com excessão do nome de usuário do banco de dados e a senha (DB_USER e DB_PASS) que são escolhidas ao instalar o banco de dados no computador.
+OBS.: Geralmente a configuração padrão passada para as variáveis de ambiente e essa exemplificada acima, com exceção do nome de usuário do banco de dados e a senha (DB_USER e DB_PASS) que são escolhidas ao instalar o banco de dados no computador.
 
 6. Após configurar as variáveis de ambiente basta rodar o comando "npm run dev" no terminal do editor de códigos (É preciso está na pasta do projeto)
 
@@ -123,7 +123,7 @@ Porém ao receber o arquivo, a API fará as verificações necessárias e caso e
 
 A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo "text/csv" (extensão .csv);
 
-<img src="./images/requisicao.png" alt="">
+<img src="./images/requisicao-patch.png" alt="">
 
 #### Exemplo de respostas
 ```json
