@@ -13,7 +13,7 @@ Para utilizar essa API localmente siga os passos descritos abaixo:
 1. Faça um fork desse repositório para a sua coleção de repositórios no GitHub;
 2. Clone o repositório para sua máquina;
 3. Abra o projeto no seu editor de códigos (IDE) e no terminal digite o comando "npm install" para instalar as dependências (É preciso está na pasta do projeto);
-4. No diretório ```src``` do projeto, vá na pasta ```database```, copie os códigos presentes no arquivo ```database.sql``` e cole na ferramenta que você utiliza para criar e manipular banco de dados (Ex.: Oracle SQL Developer,MySQL Workbench, Beekeeper Studio...). O banco de dados que deve ser utilizado é o MySQL (Instale-o caso não tenha);
+4. No diretório ```src``` do projeto, vá na pasta ```database```, copie os códigos presentes no arquivo ```database.sql``` e cole na ferramenta que você utiliza para criar e manipular banco de dados (Ex.: Oracle SQL Developer,MySQL Workbench, Beekeeper Studio...). O banco de dados que deve ser utilizado é o ```MySQL``` (Instale-o caso não tenha);
 5. Mude o nome do arquivo ```.env.example``` para ```.env```, é nele que estão todas as variáveis de ambiente para conexão com o banco de dados e porta de acesso ao servidor "process.env". Preencha as variáveis conforme as configurações que utiliza no seu computador para acessar bancos de dados locais. Veja o exemplo a seguir: 
 
 .env
