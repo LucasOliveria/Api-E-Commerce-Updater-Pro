@@ -54,12 +54,12 @@ Ao receber o arquivo, o sistema fará as verificações necessárias e retornar�
 
 ### Exemplo de arquivo CSV que deverá ser enviado
 
-![](https://1drv.ms/i/s!AtQrq4LmBxjnrD7pQmEJLexGf_au?e=0pjui8)
+<img src="./images/csv.png" alt="">
 
 ### Exemplo de requisição
 A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo  "text/csv" (extensão .csv);
 
-![](https://hackmd.io/_uploads/rJ_xz7dAh.png)
+<img src="./images/requisicao.png" alt="">
 
 ### Exemplo de respostas
 STATUS(400)
@@ -125,7 +125,7 @@ Porém ao receber o arquivo, a API fará as verificações necessárias e caso e
 
 A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo  "text/csv" (extensão .csv);
 
-![](https://hackmd.io/_uploads/rJ_xz7dAh.png)
+<img src="./images/requisicao.png" alt="">
 
 ### Exemplo de respostas
 STATUS(400)
