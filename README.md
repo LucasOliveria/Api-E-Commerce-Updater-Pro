@@ -13,7 +13,7 @@ Para utilizar essa API localmente siga os passos descritos abaixo:
 1. Faça um fork desse repositório para a sua coleção de repositórios no GitHub;
 2. Clone o repositório para sua máquina;
 3. Abra o projeto no seu editor de códigos (IDE) e no terminal digite o comando "npm install" para instalar as dependências (É preciso está na pasta do projeto);
-4. No diretório ```src``` do projeto, vá na pasta ```database```, copie os códigos presentes no arquivo ``` database.sql``` e cole na ferramenta que você utiliza para criar e manipular banco de dados (Ex.: Oracle SQL Developer,MySQL Workbench, Beekeeper Studio...). O banco de dados que deve ser utilizado é o MySQL (Instale-o caso não tenha);
+4. No diretório ```src``` do projeto, vá na pasta ```database```, copie os códigos presentes no arquivo ```database.sql``` e cole na ferramenta que você utiliza para criar e manipular banco de dados (Ex.: Oracle SQL Developer,MySQL Workbench, Beekeeper Studio...). O banco de dados que deve ser utilizado é o MySQL (Instale-o caso não tenha);
 5. Mude o nome do arquivo ```.env.example``` para ```.env```, é nele que estão todas as variáveis de ambiente para conexão com o banco de dados e porta de acesso ao servidor "process.env". Preencha as variáveis conforme as configurações que utiliza no seu computador para acessar bancos de dados locais. Veja o exemplo a seguir: 
 
 .env
@@ -25,6 +25,8 @@ DB_USER=admin
 DB_PASS=admin
 DB_NAME=e_commerce_db
 ```
+OBS.: Geralmente a configuração padrão das variáveis de ambiente são essas descritas acima, com excessão do nome de usuário do banco de dados e a senha (DB_USER e DB_PASS) que são escolhidas ao instalar o banco de dados no computador.
+
 6. Após configurar as variáveis de ambiente basta rodar o comando "npm run dev" no terminal do editor de códigos (É preciso está na pasta do projeto)
 
 OBS.: A conexão com o banco de dados está sendo feita pela biblioteca ```knex```. Isso pode ser visto em ```database > connection.tj```
@@ -46,22 +48,22 @@ export const knex = connection({
 
 ## Endpoints
 
-1. POST /file
+ ### 1. POST /file
 
-Essa rota irá receber o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados.(Esse repositório possui um exemplo de arquivo CSV para teste)
+Essa rota irá receber o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados. (Esse repositório possui um exemplo de arquivo CSV para teste).
 
 Ao receber o arquivo, o sistema fará as verificações necessárias e retornará uma resposta para o usuário informando os erros presentes no arquivo, caso exista algum.
 
-### Exemplo de arquivo CSV que deverá ser enviado
+#### Exemplo de arquivo CSV que deverá ser enviado
 
 <img src="./images/csv.png" alt="">
 
-### Exemplo de requisição
+#### Exemplo de requisição
 A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo  "text/csv" (extensão .csv);
 
 <img src="./images/requisicao.png" alt="">
 
-### Exemplo de respostas
+#### Exemplo de respostas
 ```json 
 [
     {
@@ -111,19 +113,19 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
 }
 ```
 
-2. PATCH /products
+### 2. PATCH /products
 
-Essa rota também receberá o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados.
+Essa rota também receberá o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados. (Esse repositório possui um exemplo de arquivo CSV para teste).
 
 Porém ao receber o arquivo, a API fará as verificações necessárias e caso esteja tudo certo ela enviará e atualizará as informações do banco de dados. 
 
-### Exemplo de requisição
+#### Exemplo de requisição
 
-A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo  "text/csv" (extensão .csv);
+A requisição deve ser do tipo multipart/form-data. O name esperado pela API é "csv". O arquivo enviado deve ser do tipo "text/csv" (extensão .csv);
 
 <img src="./images/requisicao.png" alt="">
 
-### Exemplo de respostas
+#### Exemplo de respostas
 ```json
 {
     "mensagem": "Existem pendências a serem resolvidas no arquivo CSV. Por favor, resolva essas pendências e reenvie o arquivo para nova verificação"
