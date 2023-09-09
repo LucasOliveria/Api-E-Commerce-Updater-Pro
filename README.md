@@ -46,6 +46,10 @@ export const knex = connection({
 });
 ```
 
+## Documentação Repositório Front-end
+
+A Documentação e os códigos da aplicação front-end complementar a esse repositório. Podem ser acessados pelo link: <a href="https://github.com/LucasOliveria/E-Commerce-Updater-Pro" target="_blank">https://github.com/LucasOliveria/E-Commerce-Updater-Pro</a> 
+
 ## Endpoints
 
  ### 1. POST /file
@@ -146,3 +150,11 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
     "mensagem": "O arquivo enviado não é CSV"
 }
 ```
+
+## Autor:
+#### Lucas Oliveira
+
+## Links
+<a href="https://www.linkedin.com/in/lucas-oliveira-5b8a5532/" target="_blank">LinkedIn</a>
+
+<a href="https://github.com/LucasOliveria/E-Commerce-Updater-Pro" target="_blank">Repositório Front-end</a> 
