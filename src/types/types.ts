@@ -19,3 +19,9 @@ export type Pack = {
   product_id: number,
   qty: number
 }
+
+export type User = {
+  id: number,
+  email: string,
+  password: string
+}

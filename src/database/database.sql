@@ -37,5 +37,8 @@ INSERT INTO packs (pack_id,product_id, qty) VALUES (1010,26,1);
 INSERT INTO packs (pack_id,product_id, qty) VALUES (1020,19,3);
 INSERT INTO packs (pack_id,product_id, qty) VALUES (1020,21,3);
 
-
-
+create table users(
+  id int auto_increment primary key,
+  email varchar(255) not null unique,
+  password varchar(255) not null
+)
