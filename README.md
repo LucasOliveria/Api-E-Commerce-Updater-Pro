@@ -52,7 +52,40 @@ A Documentação e os códigos da aplicação front-end complementar a esse repo
 
 ## Endpoints
 
- ### 1. POST /file
+ ### 1. POST /users
+
+Essa foi utilizada para fazer o cadastro de um usuário para teste, portanto ela não deve ser utilizada.
+
+ ### 2. POST /users/login
+
+Essa rota por enquanto pode ser utilizada para uma simples demonstração de login. Abaixo estão as informações a serem utilizadas no corpo da requisição:
+
+#### Exemplo de requisição
+```json
+{
+	"email": "updaterpro_teste@market.com",
+	"password": "teste123456"
+}
+```
+#### Exemplo de respostas
+```json
+{
+	"id": 1,
+	"email": "updaterpro_teste@market.com"
+}
+```
+```json
+{
+	"mensagem": "Email e senha obrigatórios"
+}
+```
+```json
+{
+	"mensagem": "Usuário não encontrado. Verifique o email e senha."
+}
+```
+
+ ### 3. POST /file
 
 Essa rota irá receber o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados. (Esse repositório possui um exemplo de arquivo CSV para teste).
 
@@ -117,7 +150,7 @@ A requisição deve ser do tipo multipart/form-data. O name esperado pela API é
 }
 ```
 
-### 2. PATCH /products
+### 4. PATCH /products
 
 Essa rota também receberá o arquivo CSV com as informações necessárias para atualizar os preços dos produtos existentes no banco de dados. (Esse repositório possui um exemplo de arquivo CSV para teste).
 

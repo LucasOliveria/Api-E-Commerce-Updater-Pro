@@ -8,6 +8,7 @@ const verifyFileUpload_1 = require("../middleware/verifyFileUpload");
 const users_1 = require("../controllers/users");
 const routes = (0, express_1.Router)();
 routes.post("/users", users_1.registerUser);
+routes.post("/users/login", users_1.loginUser);
 routes.use(multer_1.file.single('csv'));
 routes.use(verifyFileUpload_1.verifyFileUpload);
 routes.post('/file', file_1.analyzeFile);
