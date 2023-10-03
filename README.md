@@ -54,7 +54,7 @@ A Documentação e os códigos da aplicação front-end complementar a esse repo
 
  ### 1. POST /users
 
-Essa foi utilizada para fazer o cadastro de um usuário para teste, portanto ela não deve ser utilizada.
+Essa rota foi utilizada para fazer o cadastro de um usuário para teste, portanto ela não deve ser utilizada.
 
  ### 2. POST /users/login
 
@@ -63,25 +63,25 @@ Essa rota por enquanto pode ser utilizada para uma simples demonstração de log
 #### Exemplo de requisição
 ```json
 {
-	"email": "updaterpro_teste@market.com",
-	"password": "teste123456"
+    "email": "updaterpro_teste@market.com",
+    "password": "teste123456"
 }
 ```
 #### Exemplo de respostas
 ```json
 {
-	"id": 1,
-	"email": "updaterpro_teste@market.com"
+    "id": 1,
+    "email": "updaterpro_teste@market.com"
 }
 ```
 ```json
 {
-	"mensagem": "Email e senha obrigatórios"
+    "mensagem": "Email e senha obrigatórios"
 }
 ```
 ```json
 {
-	"mensagem": "Usuário não encontrado. Verifique o email e senha."
+    "mensagem": "Usuário não encontrado. Verifique o email e senha."
 }
 ```
 
