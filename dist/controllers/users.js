@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginUser = exports.registerUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const connection_1 = require("../database/connection");
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const registerUser = async (req, res) => {
     const user = {
         email: "updaterpro_teste@market.com",
@@ -36,8 +37,9 @@ const loginUser = async (req, res) => {
         if (!checkPassword) {
             return res.status(404).json({ mensagem: 'Usuário não encontrado. Verifique o email e senha.' });
         }
+        const token = jsonwebtoken_1.default.sign({ id: user.id }, String(process.env.TOKEN_PRIVATE_KEY), { expiresIn: "8h" });
         const { password: _, ...data } = user;
-        res.status(200).json(data);
+        res.status(200).json({ usuario: { data, token } });
     }
     catch (error) {
         console.log(error);

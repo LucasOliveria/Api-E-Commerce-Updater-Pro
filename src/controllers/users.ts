@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { User } from "../types/types";
 import { knex } from "../database/connection";
+import jwt from "jsonwebtoken";
 
 export const registerUser = async (req: Request, res: Response) => {
   const user = {
@@ -42,9 +43,11 @@ export const loginUser = async (req: Request, res: Response) => {
       return res.status(404).json({ mensagem: 'Usuário não encontrado. Verifique o email e senha.' });
     }
 
+    const token = jwt.sign({ id: user.id }, String(process.env.TOKEN_PRIVATE_KEY), { expiresIn: "8h" });
+
     const { password: _, ...data } = user
 
-    res.status(200).json(data);
+    res.status(200).json({ usuario: { data, token } });
   } catch (error: any) {
     console.log(error);
 

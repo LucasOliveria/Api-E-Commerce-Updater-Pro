@@ -19,11 +19,12 @@ Para utilizar essa API localmente siga os passos descritos abaixo:
 .env
 ```javascript
 PORT=3000
-DB_HOST=localhost
+DB_HOST="localhost"
 DB_PORT=3306
-DB_USER=admin
-DB_PASS=4TULlmaQ
-DB_NAME=e_commerce_db
+DB_USER="admin"
+DB_PASS="4TULlmaQ"
+DB_NAME="e_commerce_db"
+TOKEN_PRIVATE_KEY="marketztz57Wk"
 ```
 OBS.: Geralmente a configuração padrão passada para as variáveis de ambiente e essa exemplificada acima, com exceção do nome de usuário do banco de dados e a senha (DB_USER e DB_PASS) que são escolhidas ao instalar o banco de dados no computador.
 
