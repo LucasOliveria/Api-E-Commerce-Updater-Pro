@@ -39,7 +39,7 @@ const loginUser = async (req, res) => {
         }
         const token = jsonwebtoken_1.default.sign({ id: user.id }, String(process.env.TOKEN_PRIVATE_KEY), { expiresIn: "8h" });
         const { password: _, ...data } = user;
-        res.status(200).json({ usuario: { data, token } });
+        res.status(200).json({ user: { data, token } });
     }
     catch (error) {
         console.log(error);

@@ -47,7 +47,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
     const { password: _, ...data } = user
 
-    res.status(200).json({ usuario: { data, token } });
+    res.status(200).json({ user: { data, token } });
   } catch (error: any) {
     console.log(error);
 
