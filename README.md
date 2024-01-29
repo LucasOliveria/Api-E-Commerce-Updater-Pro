@@ -55,7 +55,7 @@ A Documentação e os códigos da aplicação front-end complementar a esse repo
 
  ### 1. POST /users
 
-Essa rota foi utilizada para fazer o cadastro de um usuário para teste, portanto ela não deve ser utilizada.
+Essa rota foi utilizada para fazer o cadastro de um usuário para teste, portanto ela não está disponível para cadastro de novos usuários.
 
  ### 2. POST /users/login
 
